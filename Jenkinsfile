@@ -29,7 +29,7 @@ pipeline {
         }
         stage('docker_deploy') {
             steps {
-                sh 'docker login -u marwensn -p bWFyd2Vuc246ZGNrcl9wYXRfRU11NWlMSGVmUlJISHV6QTlDcEJqYXZ5RDc4'
+                sh 'docker login -u marwensn -p docker123'
                 sh 'docker run -d -p 8080:8080 achat'
             }
         }
