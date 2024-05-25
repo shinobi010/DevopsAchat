@@ -27,5 +27,17 @@ pipeline {
                 sh 'mvn deploy'
             }
         }
+        stage('docker_build') {
+            steps {
+                sh 'docker build -t achat -f Dockerfile .'
+            }
+        }
+        /*stage('docker_deploy') {
+            steps {
+                sh 'docker run -d -p 8080:8080 achat'
+                sh 'docker login -u marwensn -p bWFyd2Vuc246ZGNrcl9wYXRfRU11NWlMSGVmUlJISHV6QTlDcEJqYXZ5RDc4'
+                sh ' '
+            }
+        }*/
     }
 }
