@@ -33,5 +33,10 @@ pipeline {
                 sh 'docker login -u marwensn -p bWFyd2Vuc246ZGNrcl9wYXRfRU11NWlMSGVmUlJISHV6QTlDcEJqYXZ5RDc4'
             }
         }
+        stage('docker_compose'){
+            steps {
+                sh 'docker-compose up -d'
+            }
+            }
     }
 }
