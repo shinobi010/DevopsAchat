@@ -31,7 +31,6 @@ pipeline {
             steps {
                 sh 'docker run -d -p 8080:8080 achat'
                 sh 'docker login -u marwensn -p bWFyd2Vuc246ZGNrcl9wYXRfRU11NWlMSGVmUlJISHV6QTlDcEJqYXZ5RDc4'
-                sh ' '
             }
         }
     }
