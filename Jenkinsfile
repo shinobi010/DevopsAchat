@@ -27,10 +27,16 @@ pipeline {
                 sh 'mvn deploy'
             }
         }
+         stage('DOCKER IMAGES') {
+            steps {
+                sh 'docker build -t achatimage:v${BUILD_NUMBER} -f Dockerfile ./'
+            }
+        }
         stage('docker_deploy') {
             steps {
                 sh 'docker login -u marwensn -p docker123'
-                sh 'docker run -d -p 8080:8080 achat'
+                sh 'docker tag achatimage:v${BUILD_NUMBER} marwensn/achatimage:achatimage'
+                sh 'docker push  marwensn/achatimage:achatimage'
             }
         }
         stage('docker_compose'){
